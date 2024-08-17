@@ -58,6 +58,8 @@ def log():
 def divide():
     int1 = float(input('input number 1:'))
     int2 = float(input('input number 2:'))
+    if int2 == 0:
+      return "Error, cannot divide by 0"    
     return int1/int2
 
 #trignometric functions
@@ -66,6 +68,8 @@ def sin(inp=0):
         inp = float(input('enter angle:'))
     while inp > 90:
         inp = -(inp - 180)
+    if inp == 90:
+          return 1
     x = inp*(pi/180)
     p = 0
     q = x
@@ -79,6 +83,8 @@ def cos(inp=0):
         inp = float(input('enter angle:'))
     while inp > 90:
         inp = (inp - 180)
+    if inp == 90:
+          return 0
     x = inp*(pi/180)
     p = 0
     q = 1
@@ -89,6 +95,8 @@ def cos(inp=0):
 
 def tan():
     inp = float(input('enter angle:'))
+    if inp%90 == 0:
+          return "inf"
     p = sin(inp)/cos(inp)
     return p
 
@@ -96,7 +104,7 @@ def quad():
     a= float(input('enter co-efficient of degree 2:'))
     b= float(input('enter co-efficient of degree 1:'))
     c= float(input('enter constant term:'))
-    smaller,larger = (-b-(b*2-(4*a*c)))/(2*a),(-b+(b*2-(4*a*c)))/(2*a)
+    smaller,larger = (-b-(b*2-(4*a*c))**(1/2))/(2*a),(-b+(b*2-(4*a*c))**(1/2))/(2*a)
     return "root 1:"+ str(smaller) + " root 2:"+ str(larger)
 #main "loop"
 run = True
